@@ -1,0 +1,47 @@
+{
+  "name": "matilda-eating-chocolate-ice-cream",
+  "version": "1.0.0",
+  "description": "Matilda eating 🍫🍦",
+  "homepage": "https://matildapearce.com/eating-chocolate-ice-cream",
+  "author": {
+    "name": "Chris Pearce",
+    "email": "nowthen@cjpearce.com",
+    "url": "http://cjpearce.com"
+  },
+  "scripts": {
+    "clean": "rimraf dist",
+    "copy:img": "cp -r src/img dist/img",
+    "css:mkdir": "mkdir dist/css",
+    "css:compress": "csso src/css/styles.css -o dist/css/styles.min.css",
+    "js:transpile": "babel src -d dist",
+    "js:uglify": "uglifyjs dist/js/** -o dist/js/scripts.min.js",
+    "js:clean": "cd dist/js && rm filters.js",
+    "build:js": "run-s -n js:*",
+    "build:css": "run-s -n css:*",
+    "build:html":
+      "htmlmin -o dist/index.html src/index.html --collapse-whitespace --minifyCSS --minifyJS --removeAttributeQuotes --removeComments",
+    "prebuild": "npm run clean",
+    "postbuild": "run-s -n copy:*",
+    "build": "run-s -n build:*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:chris-pearce/matilda-eating-chocolate-ice-cream.git"
+  },
+  "bugs": {
+    "url": "https://github.com/chris-pearce/matilda-eating-chocolate-ice-cream/issues"
+  },
+  "license": "The MIT License (MIT)",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "csso": "^3.4.0",
+    "csso-cli": "^1.1.0",
+    "html-minifier": "^3.5.7",
+    "html-minifier-cli": "^0.1.0",
+    "npm-run-all": "^4.1.2",
+    "pre-commit": "^1.2.2",
+    "rimraf": "^2.6.2",
+    "uglify-js": "^3.2.0"
+  }
+}
