@@ -24,6 +24,7 @@
     "postbuild": "run-s -n copy:*",
     "build": "run-s -n build:*"
   },
+  "pre-commit": "build",
   "repository": {
     "type": "git",
     "url": "git@github.com:chris-pearce/matilda-eating-chocolate-ice-cream.git"
