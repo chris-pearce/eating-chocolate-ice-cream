@@ -19,7 +19,7 @@
     "build:js": "run-s -n js:*",
     "build:css": "run-s -n css:*",
     "build:html":
-      "htmlmin -o dist/index.html src/index.html --collapse-whitespace --minifyCSS --minifyJS --removeAttributeQuotes --removeComments",
+      "htmlmin -o dist/index.html src/index.html --collapse-whitespace --minifyCSS --minifyJS true --removeAttributeQuotes --removeComments",
     "prebuild": "npm run clean",
     "postbuild": "run-s -n copy:*",
     "build": "run-s -n build:*"
