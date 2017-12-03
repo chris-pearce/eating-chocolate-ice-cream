@@ -19,12 +19,12 @@
     "build:js": "run-s -n js:*",
     "build:css": "run-s -n css:*",
     "build:html":
-      "htmlmin -o dist/index.html src/index.html --collapse-whitespace --minifyCSS --minifyJS true --removeAttributeQuotes --removeComments",
+      "html-minifier -o dist/index.html src/index.html --collapseInlineTagWhitespace --collapse-whitespace --minifyCSS --minifyJS --removeAttributeQuotes --removeComments",
     "prebuild": "npm run clean",
     "postbuild": "run-s -n copy:*",
+    "precommit": "npm build",
     "build": "run-s -n build:*"
   },
-  "pre-commit": "npm run build",
   "repository": {
     "type": "git",
     "url": "git@github.com:chris-pearce/matilda-eating-chocolate-ice-cream.git"
@@ -39,9 +39,8 @@
     "csso": "^3.4.0",
     "csso-cli": "^1.1.0",
     "html-minifier": "^3.5.7",
-    "html-minifier-cli": "^0.1.0",
+    "husky": "^0.14.3",
     "npm-run-all": "^4.1.2",
-    "pre-commit": "^1.2.2",
     "rimraf": "^2.6.2",
     "uglify-js": "^3.2.0"
   }
