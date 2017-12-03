@@ -22,7 +22,7 @@
       "html-minifier -o dist/index.html src/index.html --collapseInlineTagWhitespace --collapse-whitespace --minifyCSS --minifyJS --removeAttributeQuotes --removeComments",
     "prebuild": "npm run clean",
     "postbuild": "run-s -n copy:*",
-    "precommit": "npm build",
+    "precommit": "npm run build",
     "build": "run-s -n build:*"
   },
   "repository": {
