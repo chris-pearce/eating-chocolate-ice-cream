@@ -18,12 +18,13 @@
     "js:clean": "cd dist/js && rm filters.js",
     "build:js": "run-s -n js:*",
     "build:css": "run-s -n css:*",
-    "build:html": "htmlmin -o dist/index.html src/index.html --collapse-whitespace --minifyCSS --minifyJS --removeAttributeQuotes --removeComments",
+    "build:html":
+      "htmlmin -o dist/index.html src/index.html --collapse-whitespace --minifyCSS --minifyJS --removeAttributeQuotes --removeComments",
     "prebuild": "npm run clean",
     "postbuild": "run-s -n copy:*",
     "build": "run-s -n build:*"
   },
-  "pre-commit": "build",
+  "pre-commit": "npm run build",
   "repository": {
     "type": "git",
     "url": "git@github.com:chris-pearce/matilda-eating-chocolate-ice-cream.git"
